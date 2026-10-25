@@ -230,7 +230,7 @@ async function mostrarNotificacionNavegador(nombreCliente) {
         const opciones = {
             body: `Gracias ${nombreCliente}, tu pedido ha sido registrado correctamente.`,
             icon: "/icons/icon512_rounded.png",
-            badge: "/icons/icon512_rounded.png",
+            badge: "/icons/icon_badge.png",
             vibrate: [200, 100, 200] // Hace vibrar el teléfono si el sistema lo soporta
         };
 
