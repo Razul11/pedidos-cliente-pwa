@@ -230,8 +230,7 @@ async function mostrarNotificacionNavegador(nombreCliente) {
         const opciones = {
             body: `Gracias ${nombreCliente}, tu pedido ha sido registrado correctamente.`,
             icon: "/icons/icon512_rounded.png",
-            badge: "/icons/icon_badge.png",
-            vibrate: [200, 100, 200] // Hace vibrar el teléfono si el sistema lo soporta
+            badge: "/icons/icon_badge.png"
         };
 
         // Comprobar si el Service Worker está activo y usarlo para disparar la alerta
@@ -239,7 +238,6 @@ async function mostrarNotificacionNavegador(nombreCliente) {
             const registroSW = await navigator.serviceWorker.ready;
             registroSW.showNotification(titulo, opciones);
         } else {
-            // Fallback para computadoras de escritorio
             new Notification(titulo, opciones);
         }
     }
