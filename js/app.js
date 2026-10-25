@@ -198,7 +198,7 @@ btnEnviar.addEventListener("click", async () => {
         });
 
         try {
-            mostrarNotificacionNavegador(nombre);
+            lanzarNotificacion(nombre);
         } catch (notifError) {
             console.warn("La notificación local no es compatible o fue bloqueada:", notifError);
         }
@@ -223,7 +223,7 @@ function solicitarPermisoNotificaciones() {
 }
 
 // Función para mostrar la notificación nativa usando el Service Worker
-async function mostrarNotificacionNavegador(nombreCliente) {
+async function lanzarNotificacion(nombreCliente) {
     if ("Notification" in window && Notification.permission === "granted") {
         
         const titulo = "¡Pedido enviado con éxito!";
