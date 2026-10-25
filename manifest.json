@@ -22,7 +22,7 @@
     "description": "Aplicación destinada a los clientes para realizar pedidos ",
     "name": "Sistema Pedidos - Clientes",
     "short_name": "Pedidos - Clientes",
-    "start_url": "/app-cliente/index.html",
+    "start_url": "/index.html",
     "scope": "/",
-    "id": "/app-cliente/index.html"
+    "id": "/index.html"
 }

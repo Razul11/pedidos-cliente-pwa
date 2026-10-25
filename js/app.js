@@ -222,12 +222,26 @@ function solicitarPermisoNotificaciones() {
     }
 }
 
-function mostrarNotificacionNavegador(nombreCliente) {
+// Función para mostrar la notificación nativa usando el Service Worker
+async function mostrarNotificacionNavegador(nombreCliente) {
     if ("Notification" in window && Notification.permission === "granted") {
-        new Notification("¡Pedido enviado con éxito!", {
+        
+        const titulo = "¡Pedido enviado con éxito!";
+        const opciones = {
             body: `Gracias ${nombreCliente}, tu pedido ha sido registrado correctamente.`,
-            icon: "/app-cliente/icons/icon512_rounded.png"
-        });
+            icon: "/icons/icon512_rounded.png",
+            badge: "/icons/icon512_rounded.png",
+            vibrate: [200, 100, 200] // Hace vibrar el teléfono si el sistema lo soporta
+        };
+
+        // Comprobar si el Service Worker está activo y usarlo para disparar la alerta
+        if ("serviceWorker" in navigator) {
+            const registroSW = await navigator.serviceWorker.ready;
+            registroSW.showNotification(titulo, opciones);
+        } else {
+            // Fallback para computadoras de escritorio
+            new Notification(titulo, opciones);
+        }
     }
 }
 
