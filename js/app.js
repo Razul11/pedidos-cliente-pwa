@@ -230,7 +230,7 @@ async function lanzarNotificacion(nombreCliente) {
         const opciones = {
             body: `Gracias ${nombreCliente}, tu pedido ha sido registrado correctamente.`,
             icon: "/icons/icon512_rounded.png",
-            badge: "/icons/icon_badge.png"
+            badge: "/icons/icon_badge.jpg"
         };
 
         // Comprobar si el Service Worker está activo y usarlo para disparar la alerta
